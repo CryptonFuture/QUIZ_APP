@@ -2,6 +2,16 @@ document.addEventListener("DOMContentLoaded", function () {
     checkAuthStatus();
 });
 
+function showSnackbar(message) {
+    const snackbar = document.getElementById("snackbar");
+    snackbar.innerText = message;
+    snackbar.classList.add("show");
+
+    setTimeout(() => {
+        snackbar.classList.remove("show");
+    }, 3000); 
+}
+
 function encryptPassword(password) {
     return CryptoJS.SHA256(password).toString();
 }
@@ -28,7 +38,12 @@ function signup() {
     }
 
     localStorage.setItem(username, JSON.stringify({ password: encryptPassword(password), role }));
-    alert("User registered successfully!");
+    showSnackbar("Signup successful!"); 
+    setTimeout(() => {
+        document.getElementById("signup-username").value = "";
+        document.getElementById("signup-password").value = "";
+        document.getElementById("signup-error").innerText = "";
+    }, 1000); 
 }
 
 function setDefaultAdmin() {
@@ -61,7 +76,8 @@ function login() {
 
     if (userData && userData.password === encryptPassword(password)) {
         localStorage.setItem("loggedInUser", JSON.stringify({ username, role: userData.role }));
-        checkAuthStatus();
+        showSnackbar("Login successful!");
+        setTimeout(() => checkAuthStatus(), 1000);
     } else {
         document.getElementById("login-error").innerText = "Invalid username or password!";
     }

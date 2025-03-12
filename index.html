@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav id="navbar" style="display: none">
+      <div class="nav-left">
+        <span id="nav-username"></span> (<span id="nav-role"></span>)
+      </div>
+      <div class="nav-right">
+        <button onclick="logout()">Logout</button>
+      </div>
+    </nav>
+
+    <div id="auth-container">
+      <h2 id="auth-title">Login</h2>
+      <div id="auth-form">
+        <input type="text" id="username" placeholder="Username" required />
+        <div class="password-container">
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <span id="toggle-password" onclick="togglePassword()">👁</span>
+        </div>
+        <select id="role" style="display: none">
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+
+        <button id="auth-button" onclick="handleAuth()">Login</button>
+        <p id="toggle-auth" onclick="toggleAuth()">
+          Don't have an account? Sign Up
+        </p>
+        <p id="error-message" class="error-message"></p>
+      </div>
+    </div>
+    <div id="quiz-container" style="display: none">
+      <h2>Welcome to the Quiz App!</h2>
+      <p>Get ready for your quiz.</p>
+      <div class="display-flex">
+        <button class="html">HTML</button>
+        <button class="css">CSS</button>
+        <button class="javascript">JAVASCRIPT</button>
+      </div>
+
+      <div class="display-flex">
+        <button class="reactjs">REACT JS</button>
+        <button class="angular">ANGULAR</button>
+      </div>
+    </div>
+
+    <div id="admin-panel" style="display: none">
+      <h2>Admin Dashboard</h2>
+      <p>Only Admins can see this section.</p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

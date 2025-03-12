@@ -1,108 +1,95 @@
-document.addEventListener('DOMContentLoaded', function () {
-    checkAuthState();
-})
-
-let isLogin = true
-
-function toggleAuth() {
-    isLogin = !isLogin
-    document.getElementById('auth-title').innerText = isLogin ? "Login" : "Sign Up";
-    document.getElementById('auth-button').innerText = isLogin ? "Login" : "Sign Up";
-    document.getElementById('toggle-auth').innerText = isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login";
-    document.getElementById("role").style.display = isLogin ? "none" : "block";
-    document.getElementById("error-message").innerText = "";
-    clearInputFields()
-}
-
-function handleAuth() {
-    const username = document.getElementById('username').value.trim()
-    const password = document.getElementById('password').value.trim()
-    const role = document.getElementById("role").value;
-
-
-    if (!username || !password) {
-        document.getElementById("error-message").innerText = "Please enter both username and password.";
-            return;
-    }
-
-    if(password.length < 6) {
-        document.getElementById("error-message").innerText = "Password must be at least 6 characters long.";
-        return;
-    }
-
-    if (isLogin) {
-        login(username, password);
-    } else {
-        signup(username, password, role);
-    }
-}
+document.addEventListener("DOMContentLoaded", function () {
+    checkAuthStatus();
+});
 
 function encryptPassword(password) {
     return CryptoJS.SHA256(password).toString();
 }
 
-function signup(username, password, role) {
-    if (localStorage.getItem(username)) {
-        document.getElementById("error-message").innerText = "Username already exists! Choose another.";
+function signup() {
+    const username = document.getElementById("signup-username").value.trim();
+    const password = document.getElementById("signup-password").value.trim();
+    const role = document.getElementById("signup-role").value;
+
+
+    if (!username || !password) {
+        document.getElementById("signup-error").innerText = "Please fill out all fields";
         return;
     }
 
-    const encryptedPassword = encryptPassword(password);
+    if (password.length < 6) {
+        document.getElementById("signup-error").innerText = "Password must be at least 6 characters.";
+        return;
+    }
 
-    localStorage.setItem(username, JSON.stringify({ password: encryptedPassword, role }))
-    alert("Signup successful! you can now login")
-    toggleAuth()
+    if (localStorage.getItem(username)) {
+        document.getElementById("signup-error").innerText = "Username already exists!";
+        return;
+    }
+
+    localStorage.setItem(username, JSON.stringify({ password: encryptPassword(password), role }));
+    alert("User registered successfully!");
 }
 
-function login(username, password) {
-    const userData = JSON.parse(localStorage.getItem(username))
+function setDefaultAdmin() {
+    const adminUsername = "admin";
+    const adminPassword = "Admin@123";
+    const encryptedPassword = encryptPassword(adminPassword);
 
-    if (userData && userData.password === encryptPassword(password)) {
-        localStorage.setItem('loggedInUser', JSON.stringify({ username, role: userData.role }))
-        checkAuthState()
-    } else {
-        document.getElementById("error-message").innerText = "Invalid username or password!";
-
+    if (!localStorage.getItem(adminUsername)) {
+        localStorage.setItem(adminUsername, JSON.stringify({ password: encryptedPassword, role: "admin" }));
     }
 }
 
-function checkAuthState() {
-    const loggedInData = localStorage.getItem("loggedInUser")
-    if (loggedInData) {
-        const { username, role } = JSON.parse(loggedInData);
+setDefaultAdmin();
 
-        document.getElementById("auth-container").style.display = "none";
-        document.getElementById("navbar").style.display = "flex";
-        document.getElementById("nav-username").innerText = username;
-        document.getElementById("nav-role").innerText = role;
-        if (role === "admin") {
-            document.getElementById("admin-panel").style.display = "block";
-            document.getElementById("quiz-container").style.display = "none";
-        } else {
-            document.getElementById("quiz-container").style.display = "block";
-            document.getElementById("admin-panel").style.display = "none";
-        }
+function login() {
+    const username = document.getElementById("login-username").value.trim();
+    const password = document.getElementById("login-password").value.trim();
 
+    if (!username || !password) {
+        document.getElementById("login-error").innerText = "Please fill out all fields";
+        return;
+    }
+
+    if (password.length < 6) {
+        document.getElementById("login-error").innerText = "Password must be at least 6 characters.";
+        return;
+    }
+
+    const userData = JSON.parse(localStorage.getItem(username));
+
+    if (userData && userData.password === encryptPassword(password)) {
+        localStorage.setItem("loggedInUser", JSON.stringify({ username, role: userData.role }));
+        checkAuthStatus();
     } else {
-        document.getElementById("auth-container").style.display = "block";
-        document.getElementById("quiz-container").style.display = "none";
-        document.getElementById("navbar").style.display = "none";
-        document.getElementById("admin-panel").style.display = "none";
+        document.getElementById("login-error").innerText = "Invalid username or password!";
+    }
+}
 
+function checkAuthStatus() {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (loggedInUser) {
+        document.getElementById("navbar").style.display = "flex";
+        document.getElementById("nav-username").innerText = loggedInUser.username;
+        document.getElementById("nav-role").innerText = loggedInUser.role;
+
+        document.getElementById("quiz-container").style.display = loggedInUser.role === "user" ? "block" : "none";
+        document.getElementById("admin-dashboard").style.display = loggedInUser.role === "admin" ? "block" : "none";
+        document.getElementById("login-container").style.display = "none";
     }
 }
 
 function logout() {
-    localStorage.removeItem("loggedInUser")
-    checkAuthState()
+    localStorage.removeItem("loggedInUser");
+    location.reload();
 }
 
-function clearInputFields() {
-    document.getElementById("username").value = "";
-    document.getElementById("password").value = "";
+function showAdminPanel() {
+    document.getElementById("admin-panel").style.display = "block";
 }
 
-function togglePassword() {
-    const passField = document.getElementById("password");
-    passField.type = passField.type === "password" ? "text" : "password";
+function togglePassword(id) {
+    let input = document.getElementById(id);
+    input.type = input.type === "password" ? "text" : "password";
 }

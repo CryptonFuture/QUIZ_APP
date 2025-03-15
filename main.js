@@ -9,7 +9,7 @@ function showSnackbar(message) {
 
     setTimeout(() => {
         snackbar.classList.remove("show");
-    }, 3000); 
+    }, 3000);
 }
 
 function encryptPassword(password) {
@@ -38,12 +38,12 @@ function signup() {
     }
 
     localStorage.setItem(username, JSON.stringify({ password: encryptPassword(password), role }));
-    showSnackbar("Signup successful!"); 
+    showSnackbar("Signup successful!");
     setTimeout(() => {
         document.getElementById("signup-username").value = "";
         document.getElementById("signup-password").value = "";
         document.getElementById("signup-error").innerText = "";
-    }, 1000); 
+    }, 1000);
 }
 
 function setDefaultAdmin() {
@@ -73,6 +73,11 @@ function login() {
     }
 
     const userData = JSON.parse(localStorage.getItem(username));
+
+    if (!userData) {
+        document.getElementById("login-error").innerText = "Invalid username or password!";
+        return;
+    }
 
     if (userData && userData.password === encryptPassword(password)) {
         localStorage.setItem("loggedInUser", JSON.stringify({ username, role: userData.role }));
@@ -109,3 +114,8 @@ function togglePassword(id) {
     let input = document.getElementById(id);
     input.type = input.type === "password" ? "text" : "password";
 }
+
+function navigateToHtmlQuiz() {
+    window.location.href = "../HtmlQuiz/htmlQuiz.html"
+}
+

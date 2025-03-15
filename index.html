@@ -1,78 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz App</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <nav id="navbar" style="display: none;">
-        <div class="nav-left">
-            <span id="nav-username"></span> (<span id="nav-role"></span>)
-        </div>
-        <div class="nav-right">
-            <button onclick="logout()">Logout</button>
-         
-        </div>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav id="navbar" style="display: none">
+      <div class="nav-left">
+        <span id="nav-username"></span> (<span id="nav-role"></span>)
+      </div>
+      <div class="nav-right">
+        <button onclick="logout()">Logout</button>
+      </div>
     </nav>
 
     <div id="login-container">
-        <h2>Login</h2>
-        <input type="text" id="login-username" placeholder="Username" required>
-        
-        <div class="password-container">
-            <input type="password" id="login-password" placeholder="Password" required>
-            <span onclick="togglePassword('login-password')">👁</span>
-        </div>
+      <h2>Login</h2>
+      <input type="text" id="login-username" placeholder="Username" required />
 
-        <button onclick="login()">Login</button>
-        <p class="error-message" id="login-error"></p>
-        <div id="snackbar">Login successful!</div>
+      <div class="password-container">
+        <input
+          type="password"
+          id="login-password"
+          placeholder="Password"
+          required
+        />
+        <span onclick="togglePassword('login-password')">👁</span>
+      </div>
+
+      <button onclick="login()">Login</button>
+      <p class="error-message" id="login-error"></p>
     </div>
 
-    
-    <div id="admin-dashboard" style="display: none;">
-        <h2>Admin Dashboard</h2>
-        <button onclick="showAdminPanel()">Register</button>
+    <div id="admin-dashboard" style="display: none">
+      <h2>Admin Dashboard</h2>
+      <button onclick="showAdminPanel()">Register</button>
     </div>
 
-    <div id="admin-panel" style="display: none;">
-        <h2>Admin Panel - Register New User</h2>
-        <input type="text" id="signup-username" placeholder="Username" required>
+    <div id="admin-panel" style="display: none">
+      <h2>Admin Panel - Register New User</h2>
+      <input type="text" id="signup-username" placeholder="Username" required />
 
-        <div class="password-container">
-            <input type="password" id="signup-password" placeholder="Password" required>
-            <span onclick="togglePassword('signup-password')">👁</span>
-        </div>
+      <div class="password-container">
+        <input
+          type="password"
+          id="signup-password"
+          placeholder="Password"
+          required
+        />
+        <span onclick="togglePassword('signup-password')">👁</span>
+      </div>
 
-        <select id="signup-role">
-            <option value="user">User</option>
-            <option value="admin">Admin</option>
-        </select>
+      <select id="signup-role">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
 
-        <button onclick="signup()">Register User</button>
-        <p class="error-message" id="signup-error"></p>
-        <div id="snackbar">Signup successful!</div>
+      <button onclick="signup()">Register User</button>
+      <p class="error-message" id="signup-error"></p>
     </div>
 
-    <div id="quiz-container" style="display: none;">
-        <h2>Welcome to the Quiz App!</h2>
-         <p>Get ready for your quiz.</p>
+    <div id="quiz-container" style="display: none">
+      <h2>Welcome to the Quiz App!</h2>
+      <p>Get ready for your quiz.</p>
       <div class="display-flex">
-        <button class="html">HTML</button>
-        <button class="css">CSS</button>
-        <button class="javascript">JAVASCRIPT</button>
-    </div>
-    <div class="display-flex">
+        <div class="back">
+          <h1>HTML</h1>
+          <p>40 Questions covering the basics of HTML</p>
+          <button class="html" onclick="navigateToHtmlQuiz()">Start Quiz</button>
+        </div>
+       <div class="back_css">
+         <h1>CSS</h1>
+          <p>25 Questions covering the basics of CSS</p>
+          <button class="css">Start Quiz</button>
+       </div>
+        <div class="back_javascript">
+           <h1>JAVASCRIPT</h1>
+          <p>25 Questions covering the basics of JavaScript</p>
+          <button class="javascript">Start Quiz</button>
+        </div>
+        
+      </div>
+      <!-- <div class="display-flex">
         <button class="reactjs">REACT JS</button>
         <button class="angular">ANGULAR</button>
-      </div>
+      </div> -->
     </div>
 
-
+    <div id="snackbar"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>

@@ -40,6 +40,38 @@ nav {
     border-radius: 5px;
 }
 
+.back {
+    background-color: #e7e9eb;
+    border-radius: 5px;
+    padding: 25px;
+}
+
+.back p {
+    font-size: 14px;
+}
+
+.back_css {
+  background-color: #d9eee1;
+    border-radius: 5px;
+    padding: 25px;
+    margin: 10px;   
+}
+
+.back_css p {
+    font-size: 14px;
+}
+
+.back_javascript {
+     background-color: #fff4a3;
+    border-radius: 5px;
+    padding: 25px;
+      
+}
+
+.back_javascript p {
+    font-size: 14px;
+}
+
 .nav-right button:hover {
     background: #c82333;
 }
@@ -127,18 +159,21 @@ button:hover {
     width: 100%;
     max-width: 200px;
      margin: 10px;
+     border-radius: 50px;
 }
 
 .css {
     width: 100%;
     max-width: 200px;
     margin: 10px;
+     border-radius: 50px;
 }
 
 .javascript {
     width: 100%;
     max-width: 200px;
      margin: 10px;
+     border-radius: 50px;
 }
 
 .reactjs {

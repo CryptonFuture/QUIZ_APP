@@ -86,7 +86,7 @@ function login() {
 function checkAuthStatus() {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     if (loggedInUser) {
-        document.getElementById("navbar").style.display = "flex";
+        document.getElementById("login").style.display = "flex";
         document.getElementById("nav-username").innerText = loggedInUser.username;
         document.getElementById("nav-role").innerText = loggedInUser.role;
 

@@ -94,3 +94,15 @@ button:hover {
     font-size: 20px;
     font-weight: bold;
 }
+
+
+
+.option.correct {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.option.wrong {
+    background-color: #FF5733; 
+    color: white;
+}

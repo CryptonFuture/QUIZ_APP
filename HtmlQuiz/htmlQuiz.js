@@ -20,7 +20,7 @@ const questions = [
     },
     {
         question: "What is the correct HTML for adding a background color?",
-        answers: [
+        answers: [ 
             "<body bg='yellow'>",
             "<body style='background-color:yellow;'>",
             "<background>yellow</background>"
@@ -92,6 +92,110 @@ const questions = [
         correct: 2
     },
 
+    {
+        question: "Inline elements are normally displayed without starting a new line.",
+        answers: [
+            "True",
+            "False"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "How can you make a numbered list?",
+        answers: [
+            "<ul>",
+            "<list>",
+            "<ol>",
+            "<dl>"
+        ],
+        correct: 2
+    },
+
+    {
+        question: "How can you make a bulleted list?",
+        answers: [
+            "<ul>",
+            "<list>",
+            "<ol>",
+            "<dl>"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is the correct HTML for making a checkbox?",
+        answers: [
+            "<input type='check'>",
+            "<input type='checkbox'>",
+            "<checkbox>",
+            "<check>"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What is the correct HTML for making a text input field?",
+        answers: [
+            "<input type='textfield'>",
+            "<input type='text'>",
+            "<textfield type='text'>",
+            "<textfield>"
+        ],
+        correct: 1
+    }, 
+
+    {
+        question: "What is the correct HTML for making a drop-down list?",
+        answers: [
+            "<input type='list'>",
+            "<input type='dropdown'>",
+            "<list>",
+            "<select>"
+        ],
+        correct: 3
+    },
+
+    {
+        question: "What is the correct HTML for making a text area?",
+        answers: [
+            "<textarea>",
+            "<input type='textarea'>",
+            "<input type='textbox'>"
+        ],
+        correct: 0
+    },
+
+    {
+        question: "What is the correct HTML for inserting an image?",
+        answers: [
+            "<img alt='MyImage'>image.gif</img>",
+            "<img src='image.gif' alt='MyImage' />",
+            "<image src='image.gif' alt='MyImage'>",
+            "<img href='image.gif' alt='MyImage'>",
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What is the correct HTML for inserting a background image?",
+        answers: [
+            "<body bg='background.gif'>",
+            "<background img='background.gif'>",
+            "<body style='background-image:url(background.gif)'>",
+        ],
+        correct: 2
+    },
+
+    {
+        question: "An <iframe> is used to display a web page within a web page.",
+        answers: [
+            "There is no such thing as an <iframe>",
+            "False",
+            "True",
+        ],
+        correct: 2
+    },
 ];
 
 let currentQuestionIndex = 0;
@@ -178,14 +282,16 @@ function endQuiz() {
     questionEl.textContent = "Quiz Over!";
     answersEl.innerHTML = "";
 
-    
     let percentage = (score / questions.length) * 100;
+    let status = percentage >= 50 ? "Pass 🎉" : "Fail ❌";
 
     resultEl.innerHTML = `
         <p>Your score: ${score}/${questions.length}</p>
         <p>Percentage: ${percentage.toFixed(2)}%</p>
+        <p>Status: <strong>${status}</strong></p>
     `;
     nextBtn.style.display = "none";
 }
+
 
 startQuiz();

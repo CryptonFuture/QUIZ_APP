@@ -4,6 +4,10 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    background-image: url(/153685422_626f4775-3aec-427d-b099-016eaaa82613.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 nav {
@@ -33,7 +37,7 @@ nav {
     background: #c82333;
 }
 
-#login-container, #admin-panel, #quiz-container, #admin-dashboard {
+#login-container, #admin-panel, #admin-dashboard {
     max-width: 300px;
     margin: 50px auto;
     background: white;
@@ -41,7 +45,7 @@ nav {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-#quiz-container {
+/* #quiz-container {
     max-width: 1500px;
     margin: 0px auto;
     background: white;
@@ -50,7 +54,7 @@ nav {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-}
+} */
 
 #quiz-container h2,h5,p{
     text-align: center;

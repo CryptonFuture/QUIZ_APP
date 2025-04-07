@@ -5,51 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz App</title>
     <link rel="stylesheet" href="style.css" />
-    <!-- Font Awesome -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
-    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
       rel="stylesheet"
     />
-    <!-- MDB -->
     <link
       href="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.2.0/css/mdb.min.css"
       rel="stylesheet"
     />
   </head>
   <body>
-    <!-- <nav id="navbar" style="display: none">
-      <div class="nav-left">
-        <span id="nav-username"></span> (<span id="nav-role"></span>)
-      </div>
-      <div class="nav-right">
-        <button onclick="logout()">Logout</button>
-      </div>
-    </nav> -->
-    <!-- Navbar -->
     <nav
       id="login"
       class="navbar navbar-expand-lg navbar-dark bg-dark"
       style="display: none"
     >
-      <!-- Container wrapper -->
       <div class="container-fluid">
-        <!-- Navbar brand -->
-        <!-- <a class="navbar-brand me-2" href="https://mdbgo.com/">
-      <img
-        src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
-        height="16"
-        alt="MDB Logo"
-        loading="lazy"
-        style="margin-top: -1px;"
-      />
-    </a> -->
-
-        <!-- Toggle button -->
         <button
           data-mdb-collapse-init
           class="navbar-toggler"
@@ -62,9 +37,7 @@
           <i class="fas fa-bars"></i>
         </button>
 
-        <!-- Collapsible wrapper -->
         <div class="collapse navbar-collapse" id="navbarButtonsExample">
-          <!-- Left links -->
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link" href="#"
@@ -73,12 +46,8 @@
               >
             </li>
           </ul>
-          <!-- Left links -->
 
           <div class="d-flex align-items-center">
-            <!-- <button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
-          Login
-        </button> -->
             <button
               onclick="logout()"
               data-mdb-ripple-init
@@ -87,20 +56,11 @@
             >
               logout
             </button>
-            <!-- <a
-          data-mdb-ripple-init
-          class="btn btn-dark px-3"
-          href="https://github.com/mdbootstrap/mdb-ui-kit"
-          role="button"
-          ><i class="fab fa-github"></i
-        ></a> -->
+           
           </div>
         </div>
-        <!-- Collapsible wrapper -->
       </div>
-      <!-- Container wrapper -->
     </nav>
-    <!-- Navbar -->
 
     <div id="login-container">
       <h2>Login</h2>
@@ -149,16 +109,25 @@
       <p class="error-message" id="signup-error"></p>
       <div id="snackbar">Signup successful!</div>
     </div>
-    
-    <div class="py-5" id="quiz-container" style="display: none"> 
-      <h2>Welcome to the Quiz App! <span><p>Get ready for your quiz.</p></span></h2>
-      <div class="container">
-      <div class="row justify-content-center">
+ <div class="container pt-5">
+    <div id="quiz-container" style="display: none;"> 
+      <h2 class="text-center text-white">Welcome to the Quiz App! <span><p class="fs-6">Get ready for your quiz.</p></span></h2>
+     
+      <div class="row text-center">
         <div class="col-12 col-lg-4 col-sm-3 col-md-4">
           <div class="card card-radius">
             <div class="card-body">
-              <h5 class="card-title">HTML</h5>
-              <p class="card-text">40 Questions covering the basics of html</p>
+              <h5 class="card-title h3">HTML</h5>
+              <p class="card-text card-p font-bold">40 Questions covering the basics of HTML</p>
+              <button type="button" onclick="navigateToHtmlQuiz()" class="btn btn-success">Start Quiz</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4 col-sm-3 col-md-4">
+          <div class="card card-radius">
+            <div class="card-body">
+              <h5 class="card-title h3">CSS</h5>
+              <p class="card-text card-p font-bold">25 Questions covering the basics of CSS</p>
               <button type="button" class="btn btn-success">Start Quiz</button>
             </div>
           </div>
@@ -166,17 +135,8 @@
         <div class="col-12 col-lg-4 col-sm-3 col-md-4">
           <div class="card card-radius">
             <div class="card-body">
-              <h5 class="card-title">CSS</h5>
-              <p class="card-text">25 Questions covering the basics of CSS</p>
-              <button type="button" class="btn btn-success">Start Quiz</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-lg-4 col-sm-3 col-md-4">
-          <div class="card card-radius">
-            <div class="card-body">
-              <h5 class="card-title">JAVASCRIPT</h5>
-              <p class="card-text">25 Questions covering the basics of JAVASCRIPT</p>
+              <h5 class="card-title h3">JAVASCRIPT</h5>
+              <p class="card-text card-p font-bold">25 Questions covering the basics of JS</p>
               <button type="button" class="btn btn-success">Start Quiz</button>
             </div>
           </div>
@@ -184,7 +144,8 @@
       </div>
     </div>
     </div>
-  </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="main.js"></script>
     

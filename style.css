@@ -81,6 +81,10 @@ nav {
     border-radius: 15px !important;
 }
 
+.card-p {
+    font-size: 13px;
+}
+
 input, select {
     width: 90%;
     padding: 10px;

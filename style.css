@@ -8,7 +8,33 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-   
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    padding: 10px 20px;
+    color: white;
+}
+
+.btnadminPanel {
+    margin-left: 10px;
+}
+
+.nav-right button {
+
+    padding: 8px 15px;
+    border: none;
+    background: #dc3545;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.nav-right button:hover {
+    background: #c82333;
 }
 
 #login-container, #admin-panel, #admin-dashboard {
@@ -17,6 +43,38 @@ body {
     background: white;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* #quiz-container {
+    max-width: 1500px;
+    margin: 0px auto;
+    background: white;
+    padding: 117px;
+    background-image: url(/153685422_626f4775-3aec-427d-b099-016eaaa82613.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+} */
+
+#quiz-container h2,h5,p{
+    text-align: center;
+    
+}
+
+#quiz-container h5{
+    font-size: 30px;
+}
+#quiz-container h2{
+    font-size: 50px;
+    color: white;
+}   
+
+#quiz-container button{
+    border-radius: 20px;
+    font-size: 15px;
+}
+#quiz-container span{
+    font-size: 20px;
 }
 
 .card-radius{

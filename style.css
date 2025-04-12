@@ -133,6 +133,11 @@ button:hover {
     background: #218838;
 }
 
+/* .btn .btn-primary{
+    background: #28a745;
+    
+} */
+
 .error-message {
     color: red;
     font-size: 14px;

@@ -83,14 +83,30 @@
       <h2>Login</h2>
       <input type="text" id="login-username" placeholder="Username" required />
 
-      <div class="password-container">
-        <input
-          type="password"
-          id="login-password"
-          placeholder="Password"
-          required
-        />
-        <span onclick="togglePassword('login-password')">👁</span>
+    <div class="password-container">
+      <input type="password" id="login-password" placeholder="Password" required />
+      <span onclick="togglePassword('login-password')">👁</span>
+    </div>
+
+    <button onclick="login()">Login</button>
+    <p class="error-message" id="login-error"></p>
+    <div id="snackbar">Login successful!</div>
+  </div>
+
+  <div id="admin-dashboard" style="display: none" class="card">
+    <div class="card-body">
+      <h4>Admin Dashboard</h4>
+      <button onclick="showAdminPanel()" type="button" class="btn btn-success btn-rounded" data-mdb-ripple-init>Register</button>
+    </div>
+  </div>
+
+  <div id="admin-panel" style="display: none" class="card">
+    <div class="card-body">
+      <h4>Register New User</h4>
+
+      <div class="form-outline" data-mdb-input-init>
+        <input type="text" id="signup-username" class="form-control" placeholder="Username" required />
+        <label class="form-label" for="typeText">Username</label>
       </div>
 
       <button onclick="login()">Login</button>

@@ -114,28 +114,38 @@
       <div id="snackbar">Login successful!</div>
     </div> -->
 
-  <div id="admin-dashboard" style="display: none">
-    <h2>Admin Dashboard</h2>
-    <button onclick="showAdminPanel()">Register</button>
-  </div>
-
-  <div id="admin-panel" style="display: none">
-    <h2>Admin Panel - Register New User</h2>
-    <input type="text" id="signup-username" placeholder="Username" required />
-
-    <div class="password-container">
-      <input type="password" id="signup-password" placeholder="Password" required />
-      <span onclick="togglePassword('signup-password')">👁</span>
+    <div id="admin-dashboard" style="display: none" class="card">
+      <div class="card-body">
+        <h4>Admin Dashboard</h4>
+        <button onclick="showAdminPanel()" type="button" class="btn btn-success btn-rounded" data-mdb-ripple-init>Register</button>
+      </div>
     </div>
 
-    <select id="signup-role">
-      <option value="user">User</option>
-      <option value="admin">Admin</option>
-    </select>
+  <div id="admin-panel" style="display: none" class="card">
+    <div class="card-body">
+      <h4>Register New User</h4>
 
-    <button onclick="signup()">Register User</button>
-    <p class="error-message" id="signup-error"></p>
-    <div id="snackbar">Signup successful!</div>
+      <div class="form-outline" data-mdb-input-init>
+        <input type="text" id="signup-username" class="form-control" placeholder="Username" required />
+        <label class="form-label" for="typeText">Username</label>
+      </div>
+      <br>
+      <div class="form-outline mb-3" data-mdb-input-init>
+        <i class="far fa-eye trailing fa-fw pe-auto" id="show-password-toggle-icon"></i>
+        <input type="password" id="signup-password" class="form-control form-icon-trailing show-password-input-1" required />
+        <label class="form-label" for="show-password-input-1">Password</label>
+      </div>
+
+      <select id="signup-role">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+      <br>
+      <br>
+      <button onclick="signup()" type="button" class="btn btn-success btn-rounded" data-mdb-ripple-init>Register</button>
+      <p class="error-message" id="signup-error"></p>
+      <div id="snackbar">Signup successful!</div>
+    </div>
   </div>
   <div class="container pt-5">
     <div id="quiz-container" style="display: none;">

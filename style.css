@@ -37,7 +37,7 @@ nav {
     background: #c82333;
 }
 
-#login-container, #admin-panel, #admin-dashboard {
+#admin-panel, #admin-dashboard {
     max-width: 300px;
     margin: 50px auto;
     background: white;
@@ -172,13 +172,6 @@ button:hover {
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
-
-.card {
-    width: 300px; 
-    height: 200px;
-}
-
-
 @keyframes fadein {
     from { bottom: 0; opacity: 0; }
     to { bottom: 30px; opacity: 1; }
@@ -188,3 +181,4 @@ button:hover {
     from { bottom: 30px; opacity: 1; }
     to { bottom: 0; opacity: 0; }
 }
+

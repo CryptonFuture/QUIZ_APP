@@ -131,4 +131,3 @@ toggleIcon.addEventListener('pointerdown', (e) => {
       toggleIcon.classList.add('fa-eye');
     }
   });
-

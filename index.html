@@ -36,9 +36,52 @@
     </div>
   </nav>
 
+
+
   <div id="login-container">
-    <h2>Login</h2>
-    <input type="text" id="login-username" placeholder="Username" required />
+    
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-lg-4">
+          <div class="card text-center align items mt-5">
+            <div class="card-body ">
+
+              <h2>Login</h2>
+              <div data-mdb-input-init class="form-outline mb-3">
+                <input type="text" id="login-username" class="form-control rounded-input " />
+                <label class="form-label" for="username">username </label>
+              </div>
+
+              <div class="form-outline mb-3 " data-mdb-input-init>
+                <i class="far fa-eye trailing fa-fw pe-auto" id="show-password-toggle-icon"></i>
+                <input type="password" id="login-password"
+                  class="show-password-input-1 form-control form-icon-trailing align-items-end" />
+                  <label class="form-label" for="">password</label>
+              </div>
+              <button onclick="login()" type="button" class="btn btn-success btn-rounded">login
+         
+              </button>
+              <p class="error-message" id="login-error"></p>
+              <div id="snackbar">Login successful!</div>
+            </div>
+
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- <div id="login-container">
+
+      <h2>Login</h2>
+      <input type="text" id="login-username" placeholder="Username" required />
 
     <div class="password-container">
       <input type="password" id="login-password" placeholder="Password" required />
@@ -65,25 +108,35 @@
         <input type="text" id="signup-username" class="form-control" placeholder="Username" required />
         <label class="form-label" for="typeText">Username</label>
       </div>
-      <br>
-      <div class="form-outline mb-3" data-mdb-input-init>
-        <i class="far fa-eye trailing fa-fw pe-auto" id="show-password-toggle-icon"></i>
-        <input type="password" id="signup-password" class="form-control form-icon-trailing show-password-input-1" required />
-        <label class="form-label" for="show-password-input-1">Password</label>
-      </div>
 
-      <select id="signup-role">
-        <option value="user">User</option>
-        <option value="admin">Admin</option>
-      </select>
-      <br>
-      <br>
-      <button onclick="signup()" type="button" class="btn btn-success btn-rounded" data-mdb-ripple-init>Register</button>
-      <p class="error-message" id="signup-error"></p>
-      <div id="snackbar">Signup successful!</div>
-    </div>
+      <button onclick="login()">Login</button>
+      <p class="error-message" id="login-error"></p>
+      <div id="snackbar">Login successful!</div>
+    </div> -->
+
+  <div id="admin-dashboard" style="display: none">
+    <h2>Admin Dashboard</h2>
+    <button onclick="showAdminPanel()">Register</button>
   </div>
 
+  <div id="admin-panel" style="display: none">
+    <h2>Admin Panel - Register New User</h2>
+    <input type="text" id="signup-username" placeholder="Username" required />
+
+    <div class="password-container">
+      <input type="password" id="signup-password" placeholder="Password" required />
+      <span onclick="togglePassword('signup-password')">👁</span>
+    </div>
+
+    <select id="signup-role">
+      <option value="user">User</option>
+      <option value="admin">Admin</option>
+    </select>
+
+    <button onclick="signup()">Register User</button>
+    <p class="error-message" id="signup-error"></p>
+    <div id="snackbar">Signup successful!</div>
+  </div>
   <div class="container pt-5">
     <div id="quiz-container" style="display: none;">
       <h2 class="text-center text-white">Welcome to the Quiz App! <span>

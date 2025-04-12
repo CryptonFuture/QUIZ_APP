@@ -131,3 +131,22 @@ toggleIcon.addEventListener('pointerdown', (e) => {
       toggleIcon.classList.add('fa-eye');
     }
   });
+
+  const passwordInput2 = document.querySelector('.show-password-input-2');
+  const toggleIcons = document.getElementById('show-password-toggle-icon-2');
+  
+  toggleIcons.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+  
+      // Toggle input type between password and text
+      if (passwordInput2.type === 'password') {
+        passwordInput2.type = 'text';
+        toggleIcons.classList.remove('fa-eye');
+        toggleIcons.classList.add('fa-eye-slash');
+      } else {
+        passwordInput2.type = 'password';
+        toggleIcons.classList.remove('fa-eye-slash');
+        toggleIcons.classList.add('fa-eye');
+      }
+    });
+

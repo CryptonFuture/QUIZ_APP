@@ -114,6 +114,14 @@
       <div id="snackbar">Login successful!</div>
     </div> -->
 
+
+
+
+
+
+    
+    <!-- 
+ <div class="col-lg-6">
     <div id="admin-dashboard" style="display: none" class="card">
       <div class="card-body">
         <h4>Admin Dashboard</h4>
@@ -149,6 +157,151 @@
       <div id="snackbar">Signup successful!</div>
     </div>
   </div>
+  </div>
+  <div class="col-lg-6">
+    <table class="table align-middle">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Lorem</th>
+          <th scope="col">Ipsum</th>
+          <th scope="col">Dolor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Sit</td>
+          <td>Amet</td>
+          <td>
+            <button type="button" class="btn btn-link btn-sm px-3" data-mdb-ripple-init data-ripple-color="primary">
+              <i class="fas fa-times"></i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Adipisicing</td>
+          <td>Elit</td>
+          <td>
+            <button type="button" class="btn btn-link btn-sm px-3" data-mdb-ripple-init data-ripple-color="primary">
+              <i class="fas fa-times"></i>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Hic</td>
+          <td>Fugiat</td>
+          <td>
+            <button type="button" class="btn btn-link btn-sm px-3" data-mdb-ripple-init data-ripple-color="primary">
+              <i class="fas fa-times"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div> -->
+
+
+
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <!-- Admin Panel (Form) - Left Side -->
+      <div class="col-lg-3">
+        <div id="admin-dashboard" style="display: none" class="card mb-0  ">
+          <div class="card-body">
+            <h4>Admin Dashboard</h4>
+            <button onclick="showAdminPanel()" type="button" class="btn btn-success btn-rounded" data-mdb-ripple-init>Register</button>
+          </div>
+        </div>
+  
+        <div id="admin-panel" style="display: none" class="card mt-3 ">
+          <div class="card-body">
+            <h4>Register New User</h4>
+            <div class="form-outline" data-mdb-input-init>
+              <input type="text" id="signup-username" class="form-control" placeholder="Username" required />
+              <label class="form-label" for="typeText">Username</label>
+            </div>
+            <br>
+          
+            <div class="form-outline mb-3" data-mdb-input-init>
+              <i class="far fa-eye trailing fa-fw pe-auto" id="show-password-toggle-icon-2"></i>
+              <input type="password" id="signup-password" class="show-password-input-2 form-control form-icon-trailing align-items-end" />
+              <label class="form-label" for="show-password-input-2">Password</label>
+            </div>
+  
+            <select id="signup-role" class="form-select mb-3">
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+            
+            <button onclick="signup()" type="button" class="btn btn-success btn-rounded" data-mdb-ripple-init>Register</button>
+            <p class="error-message" id="signup-error"></p>
+            <div id="snackbar">Signup successful!</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9" id="admin-panel-table" style="display: none">
+         <!-- Table - Right Side -->
+      
+        <table class="table align-middle">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Lorem</th>
+              <th scope="col">Ipsum</th>
+              <th scope="col">Dolor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Sit</td>
+              <td>Amet</td>
+              <td>
+                <button type="button" class="btn btn-link btn-sm px-3" data-mdb-ripple-init data-ripple-color="primary">
+                  <i class="fas fa-times"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Adipisicing</td>
+              <td>Elit</td>
+              <td>
+                <button type="button" class="btn btn-link btn-sm px-3" data-mdb-ripple-init data-ripple-color="primary">
+                  <i class="fas fa-times"></i>
+                </button
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Hic</td>
+              <td>Fugiat</td>
+              <td>
+                <button type="button" class="btn btn-link btn-sm px-3" data-mdb-ripple-init data-ripple-color="primary">
+                  <i class="fas fa-times"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      
+      </div>
+     
+    </div>
+  </div>
+
+</div>
+
+
+
+ 
+
+
+
   <div class="container pt-5">
     <div id="quiz-container" style="display: none;">
       <h2 class="text-center text-white">Welcome to the Quiz App! <span>
@@ -156,28 +309,29 @@
         </span></h2>
 
       <div class="row text-center">
-        <div class="col-12 col-lg-4 col-sm-3 col-md-4">
+        <div class="col-12 col-lg-4 col-sm-6 col-md-4 mb-3">
           <div class="card card-radius">
             <div class="card-body">
-              <h5 class="card-title h3">HTML</h5>
+              <h5 class="card-title fs-3">HTML</h5>
               <p class="card-text card-p font-bold">40 Questions covering the basics of HTML</p>
               <button type="button" onclick="navigateToHtmlQuiz()" class="btn btn-success">Start Quiz</button>
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-4 col-sm-3 col-md-4">
+        <div class="col-12 col-lg-4 col-sm-6 col-md-4 mb-3" >
           <div class="card card-radius">
             <div class="card-body">
-              <h5 class="card-title h3">CSS</h5>
+              <h5 class="card-title fs-3">CSS</h5>
               <p class="card-text card-p font-bold">25 Questions covering the basics of CSS</p>
               <button type="button" class="btn btn-success">Start Quiz</button>
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-4 col-sm-3 col-md-4">
+        <div class="col-12 col-lg-4 col-sm-6 col-md-4 mb-3">
           <div class="card card-radius">
             <div class="card-body">
-              <h5 class="card-title h3">JAVASCRIPT</h5>
+              <!-- <h5 class="card-title h3">JAVASCRIPT</h5> -->
+              <h5 class="card-title fs-3">JAVASCRIPT</h5>
               <p class="card-text card-p font-bold">25 Questions covering the basics of JS</p>
               <button type="button" class="btn btn-success">Start Quiz</button>
             </div>

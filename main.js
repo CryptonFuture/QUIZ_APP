@@ -103,6 +103,7 @@ function logout() {
 
 function showAdminPanel() {
     document.getElementById("admin-panel").style.display = "block";
+    document.getElementById("admin-panel-table").style.display = "block";
 }
 
 function togglePassword(id) {

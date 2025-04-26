@@ -8,6 +8,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    /* overflow: hidden; */
 }
 
 nav {
@@ -182,3 +183,12 @@ button:hover {
     to { bottom: 0; opacity: 0; }
 }
 
+#bottom{
+    padding-top: 4.5%;
+}
+
+
+#container{
+    margin-left: 18%;
+    
+}
